@@ -4,6 +4,7 @@ body {
   padding:0;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-y: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
 code {
@@ -29,4 +30,13 @@ code {
 }
 .active{
   background:rgb(19, 20, 32);
+}
+::-webkit-scrollbar{
+  background:rgb(26, 29, 43);
+  width:8px;
+  height:8px;
+}
+::-webkit-scrollbar-thumb{
+  background:rgb(74, 71, 83);
+  /* border-radius:7px; */
 }

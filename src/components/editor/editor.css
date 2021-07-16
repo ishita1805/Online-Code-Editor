@@ -1,0 +1,33 @@
+.ed-container{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    background:rgb(3, 1, 19);
+}
+.ed-header{
+    border-bottom:solid 3px rgb(19, 20, 32);
+    background:rgb(3, 1, 19);
+}
+.ed-head-title{
+    padding:1vh 0;
+    width:200px;
+    border-right:solid 3px rgb(19, 20, 32);
+    height:3vh;
+    color:white;
+    display:flex;
+    flex-direction:row;
+    font-style: italic;
+    font-size:14px;
+    cursor:pointer;
+}
+.ed-editor-body{
+    overflow-y:scroll;
+    min-height:89vh;
+    resize: horizontal;
+    min-width:200px;
+    color:rgb(223, 223, 223);
+    font-family:monospace;
+    font-size:15px;
+    padding:2vh;
+    margin-bottom:8px;
+}

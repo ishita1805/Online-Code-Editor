@@ -1,9 +1,10 @@
 import React from 'react'
+import './viewer.css'
 
 const Viewer = () => {
     return (
-        <div>
-            
+        <div className='cv-container' resize>
+           code viewer screen
         </div>
     )
 }
