@@ -1,0 +1,41 @@
+.ex-container{
+    display:flex;
+    flex-direction:column;
+    color:white;
+    border-right: 2px solid rgb(19, 20, 32);
+    width:250px;
+}
+.ex-container-small{
+    display:flex;
+    flex-direction:column;
+    color:white;
+    border-right: 2px solid rgb(19, 20, 32);
+    width:fit-content;
+}
+.ex-header{
+    background:rgb(19, 20, 32);
+    display:flex;
+    color:rgb(103, 102, 116);
+    flex-direction:row;
+    align-items:center;
+    font-weight: 600;
+    margin-bottom:3vh;
+    justify-content:space-between;
+    padding:2vh;
+}
+.ex-header span{
+    cursor:pointer;
+}
+.ex-files{
+    padding:2vh;
+    cursor:pointer;
+    display:flex;
+    flex-direction:row;
+    font-size:14px;
+    align-items:center;
+    justify-content:flex-start;
+    color:white;
+}
+.ex-files:hover{
+   background:rgb(15, 16, 24);
+}
