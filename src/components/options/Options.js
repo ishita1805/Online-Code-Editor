@@ -10,8 +10,6 @@ const Options = () => {
     const [id,setId] = useState('to be done');
 
     const linkGenerator = () => {
-        //generate unique id
-        // setId
         setId("updated")
         setPopup(true);
 

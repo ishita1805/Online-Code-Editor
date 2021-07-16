@@ -13,13 +13,10 @@ const Code = (props) => {
     }, [active])
 
     const changeHandler = () => {
-        clearTimeout();
-        setTimeout(()=>{
-            props.onChange(editor.current.innerText)
-        },1500);
+        props.onChange(editor.current.innerText)
     }
     
-    // syntax highlighting, indentation, save code to localstorage, line numbers
+    // syntax highlighting, line numbers, indentation, save code to localstorage, 
     return (
         <pre>
             <code>
