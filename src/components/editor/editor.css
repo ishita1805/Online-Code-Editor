@@ -10,7 +10,6 @@
 }
 .ed-head-title{
     padding:1vh 0;
-    /* background:rgb(3, 1, 19); */
     width:200px;
     border-right:solid 3px rgb(39, 41, 63);
     height:3vh;
@@ -22,15 +21,20 @@
     cursor:pointer;
 }
 .ed-editor-body{
-    overflow-y:scroll;
-    min-height:90vh;
+    overflow-y:auto;
+    overflow-x: hidden;
+    height:100vh;
     resize: horizontal;
-    min-width:200px;
+    min-width:20vw;
     width:40vw;
     max-width:60vw !important;
     color:rgb(223, 223, 223);
     font-family:monospace;
     font-size:15px;
-    padding:2vh;
-    margin-bottom:8px;
+    margin:0;
+    padding:0;
+}
+.ed-editor-body p{
+   padding:1vh;
+   margin:0;
 }

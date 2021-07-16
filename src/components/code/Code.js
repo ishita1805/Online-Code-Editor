@@ -9,27 +9,26 @@ const Code = (props) => {
     const { active } = useContext(SettingsContext);
 
     useEffect(() => {
-       editor.current.innerText = props.value;
+        editor.current.innerText = props.value;
+        // console.log(props.value);
+
     }, [active])
 
     const changeHandler = () => {
         props.onChange(editor.current.innerText)
     }
-    
-    // syntax highlighting, line numbers, indentation, save code to localstorage, 
+
+    // syntax highlighting, indentation, save code to localstorage, 
     return (
-        <pre>
-            <code>
-                <div
+        <pre><code>
+            <div
                 className='code'
                 ref={editor}
                 contentEditable='true'
                 onKeyUp={changeHandler}
-                >
-                    <div></div>
-                </div>
-            </code>
-        </pre>
+            >
+            </div>
+        </code></pre>
     )
 }
 

@@ -14,7 +14,7 @@ const data = [
         text:'index.css'
     },
     {
-        id:'js',
+        id:'javascript',
         url:js,
         text:'index.js'
     }
