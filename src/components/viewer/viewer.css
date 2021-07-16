@@ -2,5 +2,14 @@
     display:flex;
     flex-direction:column;
     flex-grow:1;
-    background:rgb(146, 58, 73);
+    background:rgb(255, 255, 255);
+}
+.cv-header{
+    display:flex;
+    padding:1vh;
+    color:white;
+    font-weight:600;
+    color:rgb(103, 102, 116);
+    background:rgb(42, 42, 48);
+
 }

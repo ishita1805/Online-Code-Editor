@@ -3,8 +3,9 @@ import './viewer.css'
 
 const Viewer = () => {
     return (
-        <div className='cv-container' resize>
-           code viewer screen
+        <div className='cv-container'>
+          <div className='cv-header'>Compiler</div>
+          <iframe title='viewer' className='cv-viewer'/>
         </div>
     )
 }

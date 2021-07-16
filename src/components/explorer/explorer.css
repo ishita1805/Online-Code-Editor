@@ -3,7 +3,7 @@
     flex-direction:column;
     color:white;
     border-right: 2px solid rgb(19, 20, 32);
-    width:250px;
+    min-width:250px !important;
 }
 .ex-container-small{
     display:flex;
@@ -38,4 +38,13 @@
 }
 .ex-files:hover{
    background:rgb(15, 16, 24);
+}
+@media screen and (max-width:900px){
+    .ex-container{
+      position:absolute;
+      z-index:100;
+      height:100vh;
+      background:rgb(3, 1, 19);
+      box-shadow:5px 0 5px rgba(4, 14, 22, 0.7);
+    }
 }

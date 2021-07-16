@@ -22,12 +22,20 @@
 }
 .ed-editor-body{
     overflow-y:scroll;
-    min-height:89vh;
+    min-height:90vh;
     resize: horizontal;
     min-width:200px;
+    width:40vw;
+    max-width:60vw !important;
     color:rgb(223, 223, 223);
     font-family:monospace;
     font-size:15px;
     padding:2vh;
     margin-bottom:8px;
+}
+.cv-viewer{
+    margin:0.7vh;
+    flex-grow: 1;
+    border:none;
+    /* background:rgb(241, 241, 241); */
 }
