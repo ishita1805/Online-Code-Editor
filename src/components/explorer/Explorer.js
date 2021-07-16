@@ -33,11 +33,7 @@ const Explorer = () => {
             {
                 data.map((item) => (
                     <div className={active.id === item.id ? 'ex-files active' : 'ex-files'}
-                        onClick={() => setActive({
-                            id: item.id,
-                            url: item.url,
-                            text: item.text,
-                        })}>
+                        onClick={() => setActive(item)}>
                         <img className={!expand ? 'icon' : 'icon-closed'} alt={item.id} src={item.url} />
                         {!expand ? item.text : null}
                     </div>

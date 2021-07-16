@@ -1,0 +1,15 @@
+.code{
+    flex-grow:1;
+    height:100%;
+    caret-color: rgb(255, 190, 50);
+    border:none;
+    outline:none; 
+    counter-reset: my-sec-counter;
+    white-space: pre;
+}
+/* .code *::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter) "  ";
+    color:rgb(54, 50, 70);
+    font-weight:600;
+} */

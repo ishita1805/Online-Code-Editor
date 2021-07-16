@@ -3,15 +3,15 @@ import shuttle from '../assets/shuttle.png'
 
 const data = [
     {
-        id:'github',
-        url:github,
-        text:'Push to Github'
-    },
-    {
         id:'deploy',
         url:shuttle,
-        text:'Deploy'
-    }
+        text:'Get Shareable Link'
+    },
+    // {
+    //     id:'github',
+    //     url:github,
+    //     text:'Push to Github'
+    // },
 ]
 
 export default data;

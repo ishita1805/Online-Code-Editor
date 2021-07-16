@@ -1,9 +1,19 @@
 import React, { useContext } from 'react'
 import { SettingsContext } from '../../context/SettingsContext'
+import { LangContext } from '../../context/LanguagesContext'
 import './editor.css'
+import Code from '../code/Code'
 
 const Editor = () => {
     const { active } = useContext(SettingsContext);
+    const {html, css, js, setHtml, setCss, setJs} = useContext(LangContext);
+
+    const  dataSet =  (data) => {
+        if(active.id === 'html') setHtml(data);
+        else if(active.id === 'css') setCss(data);
+        else setJs(data);
+    }
+
     return (
         <div className='ed-container'>
             {/* header */}
@@ -15,19 +25,9 @@ const Editor = () => {
             </div>
             {/* body of the editor */}
             <div className='ed-editor-body'>
-                the majority have suffered alteration in some
-                form, by injected humour, or randomised words 
-                which don't look even slightly believable. If 
-                you are going to use a passage of Lorem Ipsum, 
-                you need to be sure there isn't anything embarrassing 
-                hidden in the middle of text. All the Lorem Ipsum 
-                generators on the Internet tend to repeat predefined 
-                chunks as necessary, making this the first true generator 
-                on the Internet. It uses a dictionary of over 200 Latin words, 
-                combined with a handful of model sentence structures, to generate 
-                Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is 
-                therefore always free from repetition, injected humour, or 
-                non-characteristic words etc.
+                <Code
+                value={active.id==='html'?html:(active.id==='css'?css:js)}
+                onChange={(data)=>dataSet(data)}/>
             </div>
         </div>
     )

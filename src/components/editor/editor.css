@@ -5,13 +5,14 @@
     background:rgb(3, 1, 19);
 }
 .ed-header{
-    border-bottom:solid 3px rgb(19, 20, 32);
+    border-bottom:solid 3px rgb(39, 41, 63);
     background:rgb(3, 1, 19);
 }
 .ed-head-title{
     padding:1vh 0;
+    /* background:rgb(3, 1, 19); */
     width:200px;
-    border-right:solid 3px rgb(19, 20, 32);
+    border-right:solid 3px rgb(39, 41, 63);
     height:3vh;
     color:white;
     display:flex;
@@ -32,10 +33,4 @@
     font-size:15px;
     padding:2vh;
     margin-bottom:8px;
-}
-.cv-viewer{
-    margin:0.7vh;
-    flex-grow: 1;
-    border:none;
-    /* background:rgb(241, 241, 241); */
 }
