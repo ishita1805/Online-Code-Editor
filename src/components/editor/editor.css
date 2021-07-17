@@ -40,7 +40,8 @@
 }
 .welcome-box{
     flex-grow:1;
-    height:90vh;
+    height:88vh;
+    margin:1vh;
     display:flex;
     flex-direction:column;
     align-items:center;

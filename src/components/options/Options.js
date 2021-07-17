@@ -5,6 +5,7 @@ import {SettingsContext} from '../../context/SettingsContext'
 import {LangContext} from '../../context/LanguagesContext'
 import Popup from '../popup/Popup'
 import code from '../../assets/code.png'
+import axios from 'axios'
 
 
 const Options = () => {
@@ -13,43 +14,33 @@ const Options = () => {
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
-    const linkGenerator = () => {  
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+    const linkGenerator = () => { 
+        if(shares >= 0) {
+            const src = `
+            <head>
+                <title>Dyte frontend task</title>
+            <head>
+            ${html}
+            <style>${css}</style>
+            <script>${js}</script>`
 
-        const src = `
-        <head>
-            <title>Dyte demo</title>
-        <head>
-        ${html}
-        <style>${css}</style>
-        <script>${js}</script>`
-
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
-        urlencoded.append("api_paste_code", src);
-        urlencoded.append("api_option", "paste");
-        urlencoded.append("api_paste_private", 0);
-        urlencoded.append("api_paste_expire_date", "10M");
-        urlencoded.append("api_paste_format ","html");
-
-        var requestOptions = {
-        method: 'POST',
-        mode:'no-cors',
-        headers: myHeaders,
-        body: urlencoded,
-        };
-
-        fetch("https://pastebin.com/api/api_post.php", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            setId("https://pastebin.com/udAA28c4");
+            //using reverse proxy to avoid cors
+            axios.get('http://localhost:5555',{
+                params: {
+                data: src
+                }
+            })
+            .then((resp) => {
+                setId(resp.data);
+                setPopup(true);
+                setShares(shares-1);
+                localStorage.setItem('shares',shares-1);
+            })
+            .catch((e) => console.log(e));
+        } else {
+            setId('Limit exceeded');
             setPopup(true);
-            setShares(shares-1);
-            localStorage.setItem('shares',shares-1);
-        })
-        .catch(error => console.log('error', error));
-        
+        }
     }
 
     const clearData = () => {
