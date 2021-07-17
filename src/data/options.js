@@ -1,5 +1,6 @@
 import eraser from '../assets/eraser.png'
 import shuttle from '../assets/shuttle.png'
+import link from '../assets/link.png'
 
 const data = [
     {
@@ -11,7 +12,13 @@ const data = [
         id:'clear',
         url:eraser,
         text:'Clear saved code'
-    }
+    },
+    {
+        id:'links',
+        url:link,
+        text:'View Generated Links'
+    },
+
 ]
 
 export default data;

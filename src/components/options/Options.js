@@ -4,14 +4,17 @@ import data from '../../data/options'
 import {SettingsContext} from '../../context/SettingsContext'
 import {LangContext} from '../../context/LanguagesContext'
 import Popup from '../popup/Popup'
+import LinkPopup from '../popup/LinkPopUp'
 import code from '../../assets/code.png'
 import axios from 'axios'
+import url from '../../data/url'
 
 
 const Options = () => {
     const { setActive, expand, shares, setShares } = useContext(SettingsContext);
     const { html, css, js, setHtml, setCss, setJs } = useContext(LangContext);
     const [popup,setPopup] = useState(false);
+    const [linkPopup,setLinkPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
     const linkGenerator = () => { 
@@ -20,7 +23,7 @@ const Options = () => {
             <head>
                 <title>Dyte frontend task</title>
             <head>
-            ${html}
+            <body>${html}</body>
             <style>${css}</style>
             <script>${js}</script>`
 
@@ -31,7 +34,14 @@ const Options = () => {
                 }
             })
             .then((resp) => {
-                setId(resp.data);
+                const ID = resp.data.toString().replace('https://pastebin.com/','');
+                setId(`${url}/${ID}`);
+
+                //store urls inside local storage
+                const urls  = JSON.parse(localStorage.getItem('paste-urls')?localStorage.getItem('paste-urls'):"[]")
+                urls.push(`${url}/${ID}`);
+                localStorage.setItem('paste-urls', JSON.stringify(urls));
+
                 setPopup(true);
                 setShares(shares-1);
                 localStorage.setItem('shares',shares-1);
@@ -61,6 +71,9 @@ const Options = () => {
             case 'clear':
                 clearData();
                 break;
+            case 'links':
+                setLinkPopup(true);
+                break;
             default:
                 break;
         }
@@ -68,10 +81,15 @@ const Options = () => {
 
     return (
         <div className='op-container'>
-            {/* popup */}
+            {/* popups */}
             {
                 popup?
                 <Popup id={id} close={()=>setPopup(false)}/>:
+                null
+            }
+            {
+                linkPopup?
+                <LinkPopup close={()=>setLinkPopup(false)}/>:
                 null
             }
             {/* header */}
