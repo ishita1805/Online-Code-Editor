@@ -21,10 +21,10 @@ const Explorer = () => {
                 }
                 {
                     !expand ?
-                        <span class="material-icons-outlined" onClick={expandHandler}>
+                        <span className="material-icons-outlined" onClick={expandHandler}>
                             chevron_left
                         </span> :
-                        <span class="material-icons-outlined" onClick={expandHandler}>
+                        <span className="material-icons-outlined" onClick={expandHandler}>
                             description
                         </span>
                 }
@@ -32,7 +32,7 @@ const Explorer = () => {
             {/* files */}
             {
                 data.map((item) => (
-                    <div className={active.id === item.id ? 'ex-files active' : 'ex-files'}
+                    <div key={item.id} className={active.id === item.id ? 'ex-files active' : 'ex-files'}
                         onClick={() => setActive(item)}>
                         <img className={!expand ? 'icon' : 'icon-closed'} alt={item.id} src={item.url} />
                         {!expand ? item.text : null}

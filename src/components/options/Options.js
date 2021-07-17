@@ -9,37 +9,45 @@ import code from '../../assets/code.png'
 
 const Options = () => {
     const { setActive, expand } = useContext(SettingsContext);
-    const { setHtml, setCss, setJs } = useContext(LangContext);
+    const { html, css, js, setHtml, setCss, setJs } = useContext(LangContext);
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
     const linkGenerator = () => {  
-        // var myHeaders = new Headers();
-        // myHeaders.append("Content-Type", "application/json");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-        // var urlencoded = new URLSearchParams();
-        // urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
-        // urlencoded.append("api_paste_code", "Help me");
-        // urlencoded.append("api_option", "paste");
-        // urlencoded.append("api_paste_private", 0);
-        // urlencoded.append("api_paste_expire_date", "10M");
+        const src = `
+        <head>
+            <title>Dyte demo</title>
+        <head>
+        ${html}
+        <style>${css}</style>
+        <script>${js}</script>`
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
+        urlencoded.append("api_paste_code", src);
+        urlencoded.append("api_option", "paste");
+        urlencoded.append("api_paste_private", 0);
+        urlencoded.append("api_paste_expire_date", "10M");
+        urlencoded.append("api_paste_format ","html");
+
+        var requestOptions = {
+        method: 'POST',
+        mode:'no-cors',
+        headers: myHeaders,
+        body: urlencoded,
+        };
+
+        fetch("https://pastebin.com/api/api_post.php", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            setId("https://pastebin.com/udAA28c4");
+            setPopup(true);
+        })
+        .catch(error => console.log('error', error));
         
-        // var requestOptions = {
-        // method: 'POST',
-        // mode:'no-cors',
-        // headers: myHeaders,
-        // body: urlencoded,
-        // };
-
-        // fetch("https://pastebin.com/api/api_post.php", requestOptions)
-        // .then(response => response.json())
-        // .then(result => {
-        //     setId(result);
-        //     setPopup(true);
-        // })
-        // .catch(error => console.log('error', error));
-        setId("https://pastebin.com/udAA28c4");
-        setPopup(true);
     }
 
     const clearData = () => {
@@ -76,13 +84,13 @@ const Options = () => {
             {/* header */}
             {!expand?
             <span className='op-header'>Actions</span>:
-            <span class="material-icons-outlined op-header">
+            <span className="material-icons-outlined op-header">
                 settings
             </span>}
             {/* content */}
             {
                 data.map((item) => (
-                    <div className='op-actions' onClick={()=>functionSwitch(item.id)}>
+                    <div key={item.id} className='op-actions' onClick={()=>functionSwitch(item.id)}>
                         <img className={!expand?'icon':'icon-closed'} alt={item.id} src={item.url}/>
                         {!expand?item.text:null} 
                     </div>

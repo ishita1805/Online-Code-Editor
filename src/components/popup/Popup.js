@@ -17,12 +17,12 @@ const Popup = (props) => {
             <div className='popup-container'>
                 <div className='popup-text'>{props.id}</div>
                 <span 
-                class={!active?"material-icons-outlined":"material-icons-outlined active"} 
+                className={!active?"material-icons-outlined":"material-icons-outlined active"} 
                 onClick={copy}>
                     integration_instructions
                 </span>
                 <span 
-                class="material-icons-outlined"
+                className="material-icons-outlined"
                 onClick={close}>close</span>
             </div>
         </div>
