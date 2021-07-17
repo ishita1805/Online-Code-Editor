@@ -9,24 +9,29 @@ const Options = () => {
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
-    const linkGenerator = async () => {  
-        // const requestOptions = {
-        //     mode: 'no-cors',
-        //     method: 'post',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: {
-        //         'api_dev_key ':'ToZZRZRjzGrf_WgfpfZkh9_GhhZXpxgv',
-        //         'api_option ':'paste',
-        //         'api_paste_code ':'this is a test',
-        //         'api_paste_expire_date ':'N'
-        //     }
-        // };
-        // fetch('https://pastebin.com/api/api_post.php',requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //     })
-        //     .catch((e) => console.log(e))
+    const linkGenerator = () => {  
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
+        urlencoded.append("api_paste_code", "Help me");
+        urlencoded.append("api_option", "paste");
+        urlencoded.append("api_paste_private", 0);
+        urlencoded.append("api_paste_expire_date", "10M");
+        
+        var requestOptions = {
+        method: 'POST',
+        mode:'no-cors',
+        headers: myHeaders,
+        body: urlencoded,
+        };
+
+        fetch("https://pastebin.com/api/api_post.php", requestOptions)
+        .then(response => console.log(response))
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    
         setId("updated");
         setPopup(true);
     }
