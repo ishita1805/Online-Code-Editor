@@ -46,6 +46,13 @@
 .ex-files:hover{
    background:rgb(15, 16, 24);
 }
+.button{
+    padding:2vh;
+    text-align: center;
+    font-weight:600;
+    cursor:pointer;
+    background: linear-gradient(289deg, rgba(238,217,149,1) 0%, rgba(231,133,176,1) 38%, rgba(124,181,255,1) 91%);
+}
 @media screen and (max-width:900px){
     .ex-container{
       position:absolute;

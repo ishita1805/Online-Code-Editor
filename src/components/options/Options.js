@@ -8,7 +8,7 @@ import code from '../../assets/code.png'
 
 
 const Options = () => {
-    const { setActive, expand } = useContext(SettingsContext);
+    const { setActive, expand, shares, setShares } = useContext(SettingsContext);
     const { html, css, js, setHtml, setCss, setJs } = useContext(LangContext);
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
@@ -41,10 +41,12 @@ const Options = () => {
         };
 
         fetch("https://pastebin.com/api/api_post.php", requestOptions)
-        .then(response => response.json())
+        .then(response => response.text())
         .then(result => {
             setId("https://pastebin.com/udAA28c4");
             setPopup(true);
+            setShares(shares-1);
+            localStorage.setItem('shares',shares-1);
         })
         .catch(error => console.log('error', error));
         

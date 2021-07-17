@@ -6,7 +6,7 @@ import { SettingsContext } from '../../context/SettingsContext'
 import github from '../../assets/github.png'
 
 const Explorer = () => {
-    const { expand, setExpand, active, setActive } = useContext(SettingsContext);
+    const { expand, setExpand, active, setActive, shares } = useContext(SettingsContext);
 
     const expandHandler = () => {
         setExpand(!expand);
@@ -41,6 +41,14 @@ const Explorer = () => {
             }
             {/* additional options */}
             <Options />
+            <div className='button'> 
+            {
+                !expand?
+                `${shares} "Share Codes" Left`:
+                shares
+            }
+                
+            </div>
             <div className='ex-files'>
             <a href='https://github.com/ishita1805/Dyte-React-Task' target='__blank'><img className={!expand ? 'icon' : 'icon-closed'} alt={'github'} src={github} />
             {!expand ? 'Github URL' : null}</a>
