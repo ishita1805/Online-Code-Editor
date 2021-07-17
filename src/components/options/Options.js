@@ -15,7 +15,7 @@ const Options = () => {
     const [id,setId] = useState('to be done');
 
     const linkGenerator = () => { 
-        if(shares >= 0) {
+        if(shares > 0) {
             const src = `
             <head>
                 <title>Dyte frontend task</title>

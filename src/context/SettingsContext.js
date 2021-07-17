@@ -11,7 +11,7 @@ const SettingsProvider = ({ children }) => {
     useEffect(() => {
         setInterval(() => {
             localStorage.removeItem('shares');
-        },1000 * 60 * 60 * 24 );
+        },1000 * 60 * 60 * 5 );
     }, [])
 
     
