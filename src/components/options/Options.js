@@ -25,7 +25,7 @@ const Options = () => {
             <script>${js}</script>`
 
             //using reverse proxy to avoid cors
-            axios.get('http://localhost:5555',{
+            axios.get('https://cors-remove.herokuapp.com/',{
                 params: {
                 data: src
                 }
