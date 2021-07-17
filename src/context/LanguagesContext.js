@@ -16,7 +16,7 @@ const LangProvider = ({ children }) => {
 
    useEffect(() => {
        let id = window.location.pathname;
-       id = id.replace('/','');
+       id = id.replace('/Dyte-React-Task','');
        if(id !== '') {
         axios.get('https://cors-remove.herokuapp.com/getraw', {
             params: {
