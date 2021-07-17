@@ -8,13 +8,6 @@ import CodeEditor from "@monaco-editor/react";
 const Editor = () => {
     const { active } = useContext(SettingsContext);
     const {html, css, js, setHtml, setCss, setJs} = useContext(LangContext);
-
-    const setActive = (data) => {
-        if(active.id === 'html') setHtml(data);
-        if(active.id === 'css') setCss(data);
-        if(active.id === 'javascript') setJs(data);
-    }
-
     return (
         <div className='ed-container'>
             {/* header */}
@@ -26,18 +19,52 @@ const Editor = () => {
             </div>
             {/* body of the editor */}
             <div className='ed-editor-body'>
-                <CodeEditor
-                    height="90vh"
-                    theme="vs-dark"
-                    defaultLanguage={active.id}
-                    defaultValue={active.id==='html'?html:(active.id==='css'?css:js)}
-                    onChange={(data)=>setActive(data)}
-                    options={{
-                        minimap: {
-                            enabled: false,
-                        },
-                    }}
-                />
+                {
+                    active.id === 'html'?
+                    <CodeEditor
+                        height="90vh"
+                        theme="vs-dark"
+                        defaultLanguage='html'
+                        defaultValue={html}
+                        onChange={(data)=>setHtml(data)}
+                        options={{
+                            minimap: {
+                                enabled: false,
+                            },
+                        }}
+                    /> : null
+                }
+                 {
+                    active.id === 'javascript'?
+                    <CodeEditor
+                        height="90vh"
+                        theme="vs-dark"
+                        defaultLanguage='javascript'
+                        defaultValue={js}
+                        onChange={(data)=>setJs(data)}
+                        options={{
+                            minimap: {
+                                enabled: false,
+                            },
+                        }}
+                    /> : null
+                }
+                 {
+                    active.id === 'css'?
+                    <CodeEditor
+                        height="90vh"
+                        theme="vs-dark"
+                        defaultLanguage='css'
+                        defaultValue={css}
+                        onChange={(data)=>setCss(data)}
+                        options={{
+                            minimap: {
+                                enabled: false,
+                            },
+                        }}
+                    /> : null
+                }
+
                 <p>Built by Ishita Kabra, 18BIS0108</p>
 
                 {/*custom code component with line number, syntax highliting doesn't work */}

@@ -9,25 +9,24 @@ const Options = () => {
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
-    const linkGenerator = async () => {    
-       
-        const requestOptions = {
-            mode: 'no-cors',
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: {
-                'api_dev_key ':'ToZZRZRjzGrf_WgfpfZkh9_GhhZXpxgv',
-                'api_option ':'paste',
-                'api_paste_code ':'this is a test',
-                'api_paste_expire_date ':'N'
-            }
-        };
-        fetch('https://pastebin.com/api/api_post.php',requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch((e) => console.log(e))
+    const linkGenerator = async () => {  
+        // const requestOptions = {
+        //     mode: 'no-cors',
+        //     method: 'post',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: {
+        //         'api_dev_key ':'ToZZRZRjzGrf_WgfpfZkh9_GhhZXpxgv',
+        //         'api_option ':'paste',
+        //         'api_paste_code ':'this is a test',
+        //         'api_paste_expire_date ':'N'
+        //     }
+        // };
+        // fetch('https://pastebin.com/api/api_post.php',requestOptions)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        //     .catch((e) => console.log(e))
         setId("updated");
         setPopup(true);
     }
