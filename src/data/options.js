@@ -1,17 +1,17 @@
-// import github from '../assets/github.png'
+import eraser from '../assets/eraser.png'
 import shuttle from '../assets/shuttle.png'
 
 const data = [
     {
         id:'deploy',
         url:shuttle,
-        text:'Get Shareable Link',
+        text:'Share Code',
     },
-    // {
-    //     id:'github',
-    //     url:github,
-    //     text:'Push to Github'
-    // },
+    {
+        id:'clear',
+        url:eraser,
+        text:'Clear saved code'
+    }
 ]
 
 export default data;

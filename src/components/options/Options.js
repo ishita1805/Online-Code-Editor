@@ -2,38 +2,67 @@ import React,{useState, useContext} from 'react'
 import './options.css'
 import data from '../../data/options'
 import {SettingsContext} from '../../context/SettingsContext'
+import {LangContext} from '../../context/LanguagesContext'
 import Popup from '../popup/Popup'
+import code from '../../assets/code.png'
+
 
 const Options = () => {
-    const { expand } = useContext(SettingsContext);
+    const { setActive, expand } = useContext(SettingsContext);
+    const { setHtml, setCss, setJs } = useContext(LangContext);
     const [popup,setPopup] = useState(false);
     const [id,setId] = useState('to be done');
 
     const linkGenerator = () => {  
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+        // var myHeaders = new Headers();
+        // myHeaders.append("Content-Type", "application/json");
 
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
-        urlencoded.append("api_paste_code", "Help me");
-        urlencoded.append("api_option", "paste");
-        urlencoded.append("api_paste_private", 0);
-        urlencoded.append("api_paste_expire_date", "10M");
+        // var urlencoded = new URLSearchParams();
+        // urlencoded.append("api_dev_key", "X6Vj9HxApaytHqclsPPJAx-CBw8JOah-");
+        // urlencoded.append("api_paste_code", "Help me");
+        // urlencoded.append("api_option", "paste");
+        // urlencoded.append("api_paste_private", 0);
+        // urlencoded.append("api_paste_expire_date", "10M");
         
-        var requestOptions = {
-        method: 'POST',
-        mode:'no-cors',
-        headers: myHeaders,
-        body: urlencoded,
-        };
+        // var requestOptions = {
+        // method: 'POST',
+        // mode:'no-cors',
+        // headers: myHeaders,
+        // body: urlencoded,
+        // };
 
-        fetch("https://pastebin.com/api/api_post.php", requestOptions)
-        .then(response => console.log(response))
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    
-        setId("updated");
+        // fetch("https://pastebin.com/api/api_post.php", requestOptions)
+        // .then(response => response.json())
+        // .then(result => {
+        //     setId(result);
+        //     setPopup(true);
+        // })
+        // .catch(error => console.log('error', error));
+        setId("https://pastebin.com/udAA28c4");
         setPopup(true);
+    }
+
+    const clearData = () => {
+        localStorage.removeItem("dyte-html");
+        localStorage.removeItem("dyte-css");
+        localStorage.removeItem("dyte-js");
+        setHtml('');
+        setCss('');
+        setJs('');
+        setActive({ id:'welcome', url:code, text:'Welcome' })
+    }
+
+    const functionSwitch = (id) => {
+        switch(id){
+            case 'deploy':
+                linkGenerator();
+                break;
+            case 'clear':
+                clearData();
+                break;
+            default:
+                break;
+        }
     }
 
     return (
@@ -53,7 +82,7 @@ const Options = () => {
             {/* content */}
             {
                 data.map((item) => (
-                    <div className='op-actions' onClick={linkGenerator}>
+                    <div className='op-actions' onClick={()=>functionSwitch(item.id)}>
                         <img className={!expand?'icon':'icon-closed'} alt={item.id} src={item.url}/>
                         {!expand?item.text:null} 
                     </div>

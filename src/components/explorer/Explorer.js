@@ -3,7 +3,7 @@ import './explorer.css'
 import data from '../../data/explorer'
 import Options from '../options/Options'
 import { SettingsContext } from '../../context/SettingsContext'
-
+import github from '../../assets/github.png'
 
 const Explorer = () => {
     const { expand, setExpand, active, setActive } = useContext(SettingsContext);
@@ -41,6 +41,10 @@ const Explorer = () => {
             }
             {/* additional options */}
             <Options />
+            <div className='ex-files'>
+            <a href='https://github.com/ishita1805/Dyte-React-Task' target='__blank'><img className={!expand ? 'icon' : 'icon-closed'} alt={'github'} src={github} />
+            {!expand ? 'Github URL' : null}</a>
+            </div>
         </div>
     )
 }

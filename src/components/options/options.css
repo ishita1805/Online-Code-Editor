@@ -6,6 +6,8 @@
     border-top: 2px solid rgb(19, 20, 32);
     padding:2vh;
     font-weight:600;
+    flex-grow:1;
+    border-bottom:solid 2px rgb(103, 102, 116);
     color:rgb(103, 102, 116);
 }
 .op-actions{

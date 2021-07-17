@@ -36,6 +36,13 @@
     justify-content:flex-start;
     color:white;
 }
+.ex-files a{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    color:white;
+    text-decoration: none;
+}
 .ex-files:hover{
    background:rgb(15, 16, 24);
 }

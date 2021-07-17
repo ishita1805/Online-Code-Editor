@@ -35,6 +35,25 @@
     padding:0;
 }
 .ed-editor-body p{
-   padding:1vh;
-   margin:0;
+    padding:1vh;
+    margin:0;
 }
+.welcome-box{
+    flex-grow:1;
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.welcome-box ul{
+    color:rgb(99, 94, 112);
+    font-weight:600;
+    font-style: italic;
+}
+.welcome-box h1{
+   margin:1vh 0;
+}
+.welcome-box h3{
+    margin:1vh 0;
+ }

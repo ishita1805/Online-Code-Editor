@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import data from '../data/explorer'
+import code from '../assets/code.png'
 
 const SettingsContext = React.createContext()
 
 const SettingsProvider = ({ children }) => {
     const [expand,setExpand] = useState(false);
-    const [active,setActive] = useState({
-        id: data[0].id,
-        url: data[0].url,
-        text: data[0].text,
-    });
+    const [active,setActive] = useState({id: 'welcome', url:code, text:'Welcome' });
 
     return (
         <SettingsContext.Provider value={{ expand, active, setActive, setExpand }}>
