@@ -35,11 +35,11 @@ const Options = () => {
             })
             .then((resp) => {
                 const ID = resp.data.toString().replace('https://pastebin.com/','');
-                setId(`${url}/${ID}`);
+                setId(`${url}/?id=${ID}`);
 
                 //store urls inside local storage
                 const urls  = JSON.parse(localStorage.getItem('paste-urls')?localStorage.getItem('paste-urls'):"[]")
-                urls.push(`${url}/${ID}`);
+                urls.push(`${url}/?id=${ID}`);
                 localStorage.setItem('paste-urls', JSON.stringify(urls));
 
                 setPopup(true);

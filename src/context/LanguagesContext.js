@@ -15,8 +15,8 @@ const LangProvider = ({ children }) => {
 
 
    useEffect(() => {
-       let id = window.location.href;
-       id = id.replace('https://ishita1805.github.io/Dyte-React-Task/','');
+       let id = window.location.search.substring(4);
+       console.log(id);
        if(id !== '') {
         axios.get('https://cors-remove.herokuapp.com/getraw', {
             params: {

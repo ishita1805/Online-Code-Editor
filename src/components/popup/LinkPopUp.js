@@ -14,7 +14,7 @@ const LinkPopUp = (props) => {
     const urls = JSON.parse(localStorage.getItem('paste-urls') ? localStorage.getItem('paste-urls') : "[]");
 
     const getRaw = (id) => {
-        const ID = id.toString().replace(`${url}/`, '');
+        const ID = id.toString().replace(`${url}/?id=`, '');
         axios.get('https://cors-remove.herokuapp.com/getraw', {
             params: {
                 data: ID,
