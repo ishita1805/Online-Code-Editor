@@ -72,7 +72,8 @@ const Editor = () => {
                         <h3>Using this code editor:</h3>
                         <ul>
                             <li>Use the bottom right corner to resize the code editor window</li>
-                            <li>"Share code" generates a pastebin link of your code! (limit: 10 times per IP for every 5 hours) </li>
+                            <li>"Share code" generates a pastebin link of your code! (limit: 10 links/day) </li>
+                            <li>You can view/edit your shared codes by going to "View Generated Links"</li>
                             <li>Code is auto saved, hit the clear code button to remove saved code</li>
                         </ul>
                         <p><b>Select a file from the explorer to start coding</b></p>
@@ -81,7 +82,7 @@ const Editor = () => {
                 }
 
 
-                <p>Built by Ishita Kabra, 18BIS0108</p>
+                <p>Built by Ishita Kabra</p>
 
                 {/*custom code component with line number, syntax highliting doesn't work */}
                 {/* <Code

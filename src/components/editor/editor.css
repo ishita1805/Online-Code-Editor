@@ -25,9 +25,10 @@
     overflow-x: hidden;
     height:100vh;
     resize: horizontal;
-    min-width:20vw;
+    min-width:20vw !important;
     width:40vw;
     max-width:60vw !important;
+    /* background:pink; */
     color:rgb(223, 223, 223);
     font-family:monospace;
     font-size:15px;
@@ -57,4 +58,9 @@
 }
 .welcome-box h3{
     margin:1vh 0;
+ }
+ @media screen and (max-width:1050px){
+    .ed-editor-body{
+        min-width:30vw !important;
+    }
  }

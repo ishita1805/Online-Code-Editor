@@ -43,26 +43,36 @@ const LinkPopUp = (props) => {
 
     return (
         <div className='popup'>
-            <div className='link-popup-container'>
-
-                <div>
-                    <span className="material-icons-outlined close-popup" onClick={close}>close</span>
-                    <div className='links-container'>
-                        {
-                            urls.map((item) => (
-                                <div key={item} className='link-item' onClick={() => getRaw(item)}>{item}</div>
-                            ))
-                        }
+        
+            {
+                urls.length > 0 ?
+                    <div className='link-popup-container'>
+                        <div>
+                            <span className="material-icons-outlined close-popup" onClick={close}>close</span>
+                            <div className='links-container'>
+                                <div className='links'>
+                                {
+                                    urls.map((item) => (
+                                        <div key={item} className='link-item' onClick={() => getRaw(item)}>{item}</div>
+                                    ))
+                                }
+                                </div>
+                                {clicked ? <button className='button-link' onClick={editCode}>Edit Code</button> : null}
+                            </div>
+                            
+                        </div>
+                        <iframe
+                            sandbox='allow-scripts'
+                            title='demo view'
+                            srcDoc={raw}
+                            className='view-demo' />
+                            {/* <span>Edits will be made locally and not reflected on the current link</span> */}
+                    </div>:
+                    <div className='link-popup-container-small'>
+                        <span>No links generated yet! 💔</span>&emsp;
+                        <span className="material-icons-outlined close-popup-small" onClick={close}>close</span>
                     </div>
-                    {clicked ? <button className='button-link' onClick={editCode}>Edit</button> : null}
-                </div>
-                <iframe
-                    sandbox='allow-scripts'
-                    title='demo view'
-                    srcDoc={raw}
-                    className='view-demo' />
-
-            </div>
+            }
 
         </div>
     )

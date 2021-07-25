@@ -4,6 +4,7 @@ body {
   padding:0;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   overflow-y: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,6 +17,8 @@ code {
   height:100vh;
   background:rgb(3, 1, 19);
   display:flex;
+  margin:0;
+  padding:0;
   flex-direction:row;
 }
 .icon{
@@ -32,11 +35,34 @@ code {
   background:rgb(19, 20, 32);
 }
 ::-webkit-scrollbar{
-  background:rgb(26, 29, 43);
+  background:rgb(26, 27, 32);
   width:8px;
   height:8px;
 }
 ::-webkit-scrollbar-thumb{
   background:rgb(74, 71, 83);
   /* border-radius:7px; */
+}
+.dyte-small{
+  display:none;
+}
+
+@media screen and (max-width:650px){
+  .dyte{
+    display:none;
+  }
+  .dyte-small{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:96vw;
+    height:96vh;
+    color:rgb(223, 223, 223);
+    padding:2vh 2vw;
+    background:rgb(3, 1, 19);
+  }
+  .dyte-small .welcome-box{
+    text-align:center;
+  }
 }
